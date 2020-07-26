@@ -9,6 +9,27 @@ has liked. It is designed to compliment websites like [IsTayOntumblr](http://ist
 Create a MySQL database on your server and fill in the credentials on the getLikes.php and rest.php files. Ensure that your database is accessible to 
 wherever you'll be using these files. If the database can only be accessed on localhost, you will want to put these files on that same server.
 
+Use the following SQL statement to create the table:
+```sql
+CREATE TABLE `likes` (
+ `id_string` varchar(256) NOT NULL,
+ `type` text DEFAULT NULL,
+ `blog_name` text DEFAULT NULL,
+ `source_title` text NOT NULL,
+ `post_url` text DEFAULT NULL,
+ `date` text DEFAULT NULL,
+ `timestamp` text DEFAULT NULL,
+ `state` text DEFAULT NULL,
+ `format` text DEFAULT NULL,
+ `reblog_key` text DEFAULT NULL,
+ `tags` text DEFAULT NULL,
+ `short_url` text DEFAULT NULL,
+ `summary` text DEFAULT NULL,
+ `liked_timestamp` int(64) DEFAULT NULL,
+ PRIMARY KEY (`id_string`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
+```
+
 Next, you will need to install [Guzzle](http://docs.guzzlephp.org/en/stable/overview.html). 
 
 In order to fill the database with all of the likes, you will need to generate a [Tumblr API Key](https://www.tumblr.com/docs/en/api/v2) and put it in the 
